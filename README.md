@@ -8,5 +8,3 @@ This project implements a **Context-Aware Customer Support Agent** with:
 - Full observability (step-level traces)
 - Automated evaluation (LLM-as-judge / heuristic)
 - FastAPI demo server
-
-This repo is built step-by-step following a structured chunked process.
