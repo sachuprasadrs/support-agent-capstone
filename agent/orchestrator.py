@@ -59,7 +59,13 @@ def handle_user_message(session_id: str, user_id: str, user_msg: str):
                 append_session_event(session_id, user_id, {"role": "assistant", "text": err})
                 return {"trace_id": trace_id, "reply": err}
 
+            # Auto-fill missing user_id for tools that need it
+            if tool_name == "create_ticket":
+                if "user_id" not in args:
+                    args["user_id"] = user_id  # <-- FIX
+
             result = tool["fn"](**args)
+
             append_session_event(
                 session_id,
                 user_id,
