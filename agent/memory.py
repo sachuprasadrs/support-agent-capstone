@@ -3,7 +3,8 @@ import json
 import os
 from typing import Dict, List, Any
 
-DB_PATH = "agent_memory.db"
+DB_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "agent_memory.db")
+DB_PATH = os.path.abspath(DB_PATH)
 
 
 def init_db():
